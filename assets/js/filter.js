@@ -11,11 +11,25 @@ document.addEventListener("DOMContentLoaded", function () {
       tabs.forEach((t) => t.classList.remove("is-active"));
       this.classList.add("is-active");
 
-      items.forEach((item) => {
-        const category = item.dataset.category;
-        const match = filter === "all" || category === filter;
-        item.style.display = match ? "" : "none";
-      });
+items.forEach((item) => {
+  const category = item.dataset.category || "";
+  const match =
+    filter === "all" ||
+    category.split(/\s+/).includes(filter);
+
+  if (match) {
+    // show + animate in
+    item.classList.remove("is-tab-hidden");
+    item.classList.remove("is-tab-fadein"); // reset animation
+    // force reflow so animation restarts
+    void item.offsetWidth;
+    item.classList.add("is-tab-fadein");
+  } else {
+    // hide
+    item.classList.add("is-tab-hidden");
+  }
+});
+
     });
   });
 });

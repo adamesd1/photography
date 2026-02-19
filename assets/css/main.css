@@ -2056,3 +2056,23 @@ input, select, textarea {
 .poptrox-overlay .closer {
     color: #000000 !important;
 }
+.thumb {
+  transition: opacity 0.2s ease;
+}
+
+.thumb.is-fading-out {
+  opacity: 0;
+}
+/* Tab filter fade-in (reuses the template's vibe) */
+.thumb.is-tab-hidden {
+  display: none;
+}
+
+.thumb.is-tab-fadein {
+  animation: tabFadeIn 0.25s ease-out;
+}
+
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
