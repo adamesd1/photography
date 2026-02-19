@@ -2048,3 +2048,11 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+		/* Make poptrox lightbox background white */
+.poptrox-overlay {
+    background: #ffffff !important;
+}
+
+.poptrox-overlay .closer {
+    color: #000000 !important;
+}
